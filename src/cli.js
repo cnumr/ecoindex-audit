@@ -14,6 +14,8 @@ const optionDefinitions = [
   { name: "outputPathDir", type: String },
   { name: "outputFileName", type: String },
   { name: "sonarFilePath", type: String },
+  { name: "staticFolder", type: String },
+  { name: "staticUrlExcludes", type: String, multiple: true },
 ];
 
 (async () => {

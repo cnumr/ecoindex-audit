@@ -43,9 +43,7 @@ const generateStatus = (received, expected) => {
 
   return "error";
 };
-module.exports = async (url, options) => {
-  const urls = Array.isArray(url) ? url : [url];
-
+module.exports = async (urls, options) => {
   const wrongUrl = urls.find((url) => !checkUrl(url));
   if (wrongUrl) {
     console.error(`You have at least one malformed URL`);

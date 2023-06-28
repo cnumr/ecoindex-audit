@@ -1,3 +1,5 @@
+🔴🔴 Ce repository n'est plus actif. Le code a été migré dans l'organisation du CNUMR. Vous le trouverez [ici](https://github.com/cnumr/ecoindex-audit) 🔴🔴
+
 # Eco Index Audit
 
 [![Actions Status](https://github.com/cnumr/eco-index-audit/workflows/Build/badge.svg)](https://github.com/EmmanuelDemey/eco-index-audit/actions)
