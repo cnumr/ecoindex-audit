@@ -3,6 +3,7 @@ const chalk = require("chalk");
 const highlight = require("cli-highlight").highlight;
 const format = require("html-format");
 const Table = require("cli-table");
+const {getPageMetrics} = require("ecoindex_puppeteer");
 
 const logger = async (...messages) => {
   let results;
@@ -31,12 +32,6 @@ const logger = async (...messages) => {
 };
 
 module.exports = {
-  counterNumberOfNode(page) {
-    return page.evaluate(() => {
-      return document.getElementsByTagName("*").length;
-    });
-  },
-
   async audit(
     urls,
     {
@@ -69,7 +64,6 @@ module.exports = {
     }
 
     const page = await browser.newPage();
-    page.setCacheEnabled(false);
 
     if (process.env.ECOINDEX_VERBOSE === "true") {
       page.on("console", async (msg) => {
@@ -80,49 +74,22 @@ module.exports = {
       });
     }
 
-    let numberOfRequests = 0;
-    let sizeOfRequests = 0;
-
-    const devToolsResponses = new Map();
-    const devTools = await page.target().createCDPSession();
-    await devTools.send("Network.enable");
-
-    devTools.on("Network.responseReceived", (event) => {
-      logger(chalk.blue("Intercept HTTP Request"), event.response.url);
-      devToolsResponses.set(event.requestId, event.response);
-    });
-
-    devTools.on("Network.loadingFinished", (event) => {
-      numberOfRequests++;
-      sizeOfRequests += event.encodedDataLength;
-    });
 
     const results = [];
     for (const url of urls) {
-      numberOfRequests = 0;
-      sizeOfRequests = 0;
 
       await page.goto(url, { waitUntil: "domcontentloaded" });
 
       if (beforeScript) {
         await page.evaluate(beforeScript, globals);
-        numberOfRequests = 0;
-        sizeOfRequests = 0;
-        await page.goto(url, { waitUntil: "domcontentloaded" });
       }
 
       if (waitForSelector) {
         await page.waitForSelector(waitForSelector, { timeout: 5000 });
-      } else {
-        try {
-          await page.waitForNavigation({
-            waitUntil: "networkidle0",
-            timeout: 5000,
-          });
-        } catch (e) {
-          /* empty */
-        }
       }
+
+      // Get page state metrics.
+      const metrics = await getPageMetrics(page, url);
 
       if (process.env.ECOINDEX_DISPLAY_HTML === "true") {
         logger(async () => {
@@ -146,15 +113,14 @@ module.exports = {
         });
       }
 
-      const metrics = await this.counterNumberOfNode(page);
-
       results.push({
         url,
-        metrics: metrics + (initialValues?.[url]?.metrics ?? 0),
+        metrics:
+          metrics.getDomElementsCount() + (initialValues?.[url]?.metrics ?? 0),
         numberOfRequests:
-          numberOfRequests + (initialValues?.[url]?.numberOfRequests ?? 0),
+          metrics.getRequestsCount() + (initialValues?.[url]?.numberOfRequests ?? 0),
         sizeOfRequests:
-          sizeOfRequests + (initialValues?.[url]?.sizeOfRequests ?? 0),
+          metrics.bitSize + (initialValues?.[url]?.sizeOfRequests ?? 0),
       });
     }
 
