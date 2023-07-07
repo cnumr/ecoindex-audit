@@ -36,7 +36,7 @@
     "ecoindex_reference": "^1.0.2",
     "glob": "^10.3.0",
     "html-format": "^1.0.2",
-    "puppeteer": "^19.2.0",
+    "puppeteer": "^20.8.0",
     "static-server": "^2.2.1"
   },
   "devDependencies": {
