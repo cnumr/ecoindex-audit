@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.33.0",
-    "cypress": "^10.11.0",
+    "cypress": "^12.17.2",
     "eslint": "^8.5.0",
     "eslint-plugin-jest": "^27.0.4",
     "husky": "^7.0.4",
