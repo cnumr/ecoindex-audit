@@ -35,6 +35,9 @@
     "ecoindex_puppeteer": "*",
     "ecoindex_reference": "^1.0.2",
     "glob": "^10.3.0",
+    "ecoindex": "^1.0.5",
+    "ecoindex_puppeteer": "*",
+    "ecoindex_reference": "^1.0.2",
     "html-format": "^1.0.2",
     "puppeteer": "^19.2.0",
     "static-server": "^2.2.1"
