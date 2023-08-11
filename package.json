@@ -39,7 +39,7 @@
     "ecoindex_puppeteer": "*",
     "ecoindex_reference": "^1.0.2",
     "html-format": "^1.0.2",
-    "puppeteer": "^19.2.0",
+    "puppeteer": "^21.0.3",
     "static-server": "^2.2.1"
   },
   "devDependencies": {
