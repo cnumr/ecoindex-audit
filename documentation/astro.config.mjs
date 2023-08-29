@@ -14,7 +14,9 @@ export default defineConfig({
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Documentation Généale', link: '/guides/documentation/' },
+						{ label: 'Getting Started', link: '/guides/documentation/' },
+						{ label: 'Integration with Cypress', link: '/guides/cypress/' },
+						{ label: 'Integration with Playwright', link: '/guides/playwright/' },
 					],
 				}
 			],
