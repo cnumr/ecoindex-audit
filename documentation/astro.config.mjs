@@ -5,6 +5,16 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
+			head: [
+				{
+				  tag: "script",
+				  attrs: {
+					src: "https://plausible.io/js/script.js",
+					"data-domain": "eco-index-audit.netlify.app",
+					defer: true,
+				  },
+				},
+			  ],
 			title: 'Eco-index Audit',
 			social: {
 				github: 'https://github.com/cnumr/ecoindex-audit',
