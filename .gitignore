@@ -108,3 +108,7 @@ eco-index-audit.js
 /test-results/
 /playwright-report/
 /playwright/.cache/
+reports-playwright
+report_final
+reports
+.idea
