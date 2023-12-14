@@ -20,6 +20,7 @@ module.exports = async (options, withResult = false) => {
       initialValues: options.initialValues,
       beforeClosingPageTimeout: options.beforeClosingPageTimeout,
       waitForSelector: options.waitForSelector,
+      cookies: options.cookies
     });
     const gradeInput = grades.findIndex((o) => o === options.grade);
     const gradeOutput = grades.findIndex((o) => o === result.grade);

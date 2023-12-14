@@ -101,6 +101,7 @@ module.exports = defineConfig({
               globals: { data: "data" },
               beforeScript: (globals) => console.log(globals),
               afterScript: (globals) => console.log(globals),
+              cookies: [{name:"mycookie", value:"mycookieValue", domain:"mydomain.com", httpOnly:false}]
             },
           }),
       });
