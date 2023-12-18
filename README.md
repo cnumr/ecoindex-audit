@@ -1,7 +1,7 @@
 # Eco Index Audit
 
-[![Actions Status](https://github.com/cnumr/eco-index-audit/workflows/Build/badge.svg)](https://github.com/EmmanuelDemey/eco-index-audit/actions)
-[![npm version](https://badge.fury.io/js/eco-index-audit.svg)](https://badge.fury.io/jcd ..s/eco-index-audit)
+[![Actions Status](https://github.com/cnumr/ecoindex-audit/workflows/Build/badge.svg)](https://github.com/cnumr/ecoindex-audit/actions)
+[![npm version](https://badge.fury.io/js/eco-index-audit.svg)](https://badge.fury.io/js/eco-index-audit)
 
 This tool is the CLI version of [this website](https://www.ecoindex.fr/)
 
@@ -101,6 +101,7 @@ module.exports = defineConfig({
               globals: { data: "data" },
               beforeScript: (globals) => console.log(globals),
               afterScript: (globals) => console.log(globals),
+              cookies: [{name:"mycookie", value:"mycookieValue", domain:"mydomain.com", httpOnly:false}]
             },
           }),
       });

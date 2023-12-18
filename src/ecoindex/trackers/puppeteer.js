@@ -44,6 +44,7 @@ module.exports = {
       initialValues,
       beforeClosingPageTimeout,
       waitForSelector,
+      cookies
     }
   ) {
     const shouldReuseExistingChromium =
@@ -64,6 +65,10 @@ module.exports = {
     }
 
     const page = await browser.newPage();
+    if (cookies)
+    {
+      await page.setCookie(...cookies);
+    }
 
     if (process.env.ECOINDEX_VERBOSE === "true") {
       page.on("console", async (msg) => {
