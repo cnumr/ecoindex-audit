@@ -1,7 +1,7 @@
 # Eco Index Audit
 
 [![Actions Status](https://github.com/cnumr/ecoindex-audit/workflows/Build/badge.svg)](https://github.com/cnumr/ecoindex-audit/actions)
-[![npm version](https://badge.fury.io/js/eco-index-audit.svg)](https://badge.fury.io/js/eco-index-audit)
+[![npm version](https://badge.fury.io/js/@cnumr%2Feco-index-audit.svg)](https://badge.fury.io/js/@cnumr%2Feco-index-audit)
 
 This tool is the CLI version of [this website](https://www.ecoindex.fr/)
 
