@@ -1,6 +1,6 @@
 {
   "name": "@cnumr/eco-index-audit",
-  "version": "4.7.0",
+  "version": "4.7.1",
   "description": "This module will generate the ecoindex score for a website",
   "main": "src/main.js",
   "bin": "src/cli.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EmmanuelDemey/eco-index-audit.git"
+    "url": "git+https://github.com/cnumr/ecoindex-audit.git"
   },
   "keywords": [
     "web",
@@ -22,9 +22,9 @@
   "author": "Emmanuel Demey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EmmanuelDemey/eco-index-audit/issues"
+    "url": "https://github.com/cnumr/ecoindex-audit/issues"
   },
-  "homepage": "https://github.com/EmmanuelDemey/eco-index-audit#readme",
+  "homepage": "https://github.com/cnumr/ecoindex-audit#readme",
   "dependencies": {
     "@elastic/elasticsearch": "^8.6.0",
     "chalk": "^4.1.2",
